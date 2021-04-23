@@ -1,0 +1,42 @@
+---
+title: "Assignment 11 – GoodReads.com Recommender System"
+author: "Matthew Lucich"
+output:
+  html_document: default
+  pdf_document: default
+editor_options: 
+  chunk_output_type: console
+---
+
+## Introduction
+
+It may seem counterintuitive to have a recommender system that intentionally does not recommend items the users will likely want most, nevertheless in the right circumstances I believe this cannot only be beneficial to the users, but to the organization as well. The proliferation of echo chambers in recent years is often attributed to recommender algorithms and the divisive environment that results from them is leaving a growing portion of the population wary of their effects. Major social media sites and media organizations are unlikely to be the first to spring to fix the problem, but a site such as GoodReads.com, which has lower stakes in the success of their recommender systems and potentially a user base with a higher proclivity towards seeking a well-rounded view on subjects, could be a great place to test this idea.
+
+
+## Scenario Analysis
+
+Looking through the lens of the echo chamber problem outlined above, the target users are a subset of GoodReads.com users that may either currently value reading differing views on topics or at least recognize the importance of it. The goal of the users is to have an enriching experience through reading, in this scenario particularly non-fiction reading. This unique recommender system can help them reach this goal by increasing their understanding of particular topics, expanding their interests to overlooked subjects, and in general challenging their perspectives.
+
+
+## Reverse Engineer
+
+In addition to this being focused on only a subset of books, this would only be applied to the recommender system found on book pages. Currently, due to the label, “Readers Also Enjoyed”, we can assume GoodReads employed a collaborative filtering approach – the approach most likely to narrow viewpoints. While providing recommendations for books based on what books readers of this book also liked, it is likely layering on additional filtering based on genre, as the recommendations generally fit into the same theme. 
+
+
+## How to Improve
+
+The approach for what I’ll call the “Opposing Views” recommender would be fairly similar: mixing content-based and collaborative filtering methods. The content-based portion would use an attribute such as genre, but would also test additional features such as the custom user created tags – often denoting subgenres. Mining the book description and author bio for terminology that is often associated with particular views should also be explored. From a collaborative filtering perspective, while filtering down to a genre, the algorithm would then look for a lack of overlap between users. For example, if the genre is economics, finding users that have read popular economics but have not read the book the recommender system is on or similar books, then it could be a suitable recommendation. Evaluating the success of this unique recommender system could prove difficult. One idea for an evaluation metric is to track the number of “want to read” clicks for books in this “Opposing Views” recommender system following a user clicking on the book in the recommender.
+
+
+## References
+
+Greg Linden, Brent Smith, and Jeremy York (2003) [Amazon.com
+Recommendations](https://datajobs.com/data-science-repo/Recommender-Systems-[Amazon].pdf)
+
+Alexander Spangher (2015) [Building the Next New York Times Recommendation Engine](https://open.blogs.nytimes.com/2015/08/11/building-the-next-new-york-times-recommendation-engine/)
+
+
+* * *
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
